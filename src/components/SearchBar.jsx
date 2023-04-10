@@ -13,7 +13,7 @@ export default function SearchBar({onSearch}) {
 
   return (
       <div>
-        <input type='search' value={id} onChange={handleChange}/>
+        <input placeholder="ID del personaje" type='search' value={id} onChange={handleChange} />
         <button onClick={() =>{onSearch(id)}}>Agregar</button>
       </div>
     )
