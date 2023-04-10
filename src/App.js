@@ -57,7 +57,7 @@ function App() {
     setAccess(false)
     navigate("/")
   }
-  console.log(access)
+
   
   return (
     <div className="App">

@@ -1,20 +1,20 @@
 //importar styles de Card.module.css
 import { Link } from "react-router-dom";
-import styles from "./card.module.css";
+import "../styles/form.css"
 
 export default function Card(props) {
   return (
-    <div className={styles.container}>
+    <div className="card">
       <div>
-        <button onClick={() => props.onClose(props.id)}>X</button>
+        <button className="btCierre" onClick={() => props.onClose(props.id)}>X</button>
       </div>
       <Link to={`/detail/${props.id}`}>
-        <div>{props.name}</div> 
+        <h3>{props.name}</h3> 
       </Link>
-      <div>{props.species}</div>
-      <div>{props.gender}</div>
-      <div>{props.status}</div>
-      <div>{props.origin}</div>
+      <h4>{props.species}</h4>
+      <h4>{props.gender}</h4>
+      <h4>{props.status}</h4>
+      <h4>{props.origin}</h4>
       <div>
         <img alt={props.image} src={props.image} />
       </div>

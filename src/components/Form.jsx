@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { validation } from "./validation";
+import "../styles/form.css";
 
 export default function Form({ login }) {
   const [userData, setUserData] = useState({
@@ -29,10 +30,9 @@ export default function Form({ login }) {
   //! Al Hacer SUBMIT la funcion Validate funciona con retraso
 
   return (
-    <div>
+    <div className="login-container">
       <form onSubmit={handleSubmit}>
-        {" "}
-        {/* JORGE parece tener el "onSubmit={handleSubmit}" aca */}
+        <h2>Iniciar Sesión</h2>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -42,9 +42,9 @@ export default function Form({ login }) {
           placeholder="rick_infinito@mail.com"
           onChange={handleChange}
         />
-        <br />
+        
         <span>{errors.email}</span> {/* MUESTRO EL ERROR DEL EMAIL*/}
-        <br />
+        
         <label htmlFor="password">Password</label>
         <input
           id="password" //? el ID del INPUT que asocio al HTMLFOR del label para que al hacer click en label me direccione al input
@@ -54,10 +54,10 @@ export default function Form({ login }) {
           placeholder="Jerry_apesta123" //? Es el texto que aparece en gris a modo de ejemplo dentro del input
           onChange={handleChange} //? Esta atento a cada cambio y ejecuta en este caso handleChange
         />
-        <br />
+        
         <span>{errors.password}</span> {/* MUESTRO EL ERROR DEL PASSWORD*/}
-        <br />
-        <button type="submit">Submit</button>
+        
+        <button type="submit">Log in</button>
       </form>
     </div>
   );

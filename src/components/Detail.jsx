@@ -27,7 +27,8 @@ export function Detail() {
 
 
   return (
-    <div>
+    <div className="card">
+      <h4>Nombre</h4>
       <h2>{character?.name}</h2>
       <h2>{character?.status}</h2>
       <h2>{character?.species}</h2>
