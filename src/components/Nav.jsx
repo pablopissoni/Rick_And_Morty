@@ -17,10 +17,11 @@ const Nav = ({ onSearch , logOut}) => {
   return (
     <div>
       <SearchBar onSearch={onSearch} />
-      <button onClick={() => {onSearch(numeroAleatorio())}} >Random</button>
+      <button className="btNav" onClick={() => {onSearch(numeroAleatorio())}} >Random</button>
       <Link to="/home" ><button>Home</button></Link>
       <Link to="/about"><button>About</button></Link>
       <Link to="/" ><button onClick={logOut}>Log out</button></Link>
+      <Link to="/favorites" ><button>Favorites</button></Link>
     </div>
   );
 };

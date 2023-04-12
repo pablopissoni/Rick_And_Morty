@@ -8,6 +8,8 @@ import { Routes } from "react-router-dom";
 import About from "./components/About";
 import { Detail } from "./components/Detail";
 import Form from "./components/Form";
+import Favorites from "./components/Favorites";
+
 
 function App() {
   //* HOOKs
@@ -63,6 +65,8 @@ function App() {
     <div className="App">
       <Nav onSearch={onSearch} logOut= {logOut}/>
       <Routes>
+
+        <Route path="/favorites" element={<Favorites/>}/>
         <Route path="/" element={<Form login={login} />}/>
         <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
         <Route path="/about" element={<About/>} /> 

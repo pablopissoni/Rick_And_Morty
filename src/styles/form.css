@@ -1,5 +1,5 @@
 .login-container {
-  background-color: rgba(192, 192, 192, 0.411);
+  background-color: rgba(192, 192, 192, 0.308);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
@@ -31,7 +31,7 @@ input {
   background-color: #f9f9f9;
 }
 
-button {
+.btLogin,.btNav {
   width: 150px; 
   height: 40px;
   background-color: #4caf50;
@@ -66,9 +66,9 @@ button {
 /* ---------------  DISEÑO DE LA CARTA  ----------------------- */
 
 .card {
-    width: 300px; /* Ancho de la carta */
-    margin: 20px; /* Margen entre cartas */
-    border-radius: 25px; /* Borde redondeado */
+    width: 300px;
+    margin: 20px;
+    border-radius: 25px;
     background-color: #a1e7d88f;
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 10px #888888;
@@ -97,18 +97,17 @@ button {
   }
   
   
-  .card button {
-    width: 40px;
-    height: 40px; /* Altura del botón */
-    background-color: #4CAF50;
+  .btCierre {
+    /* width: 30px; */
+    background-color: #419935;
     border: none;
     color: white;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
-    display: block;
+    /* text-decoration: none; */
+    /* display: block; */
     font-size: 20px;
-    margin-top: 20px;
+    margin: auto;
     border-radius: 5px;
     cursor: pointer;
   }

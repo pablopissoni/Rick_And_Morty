@@ -57,7 +57,7 @@ export default function Form({ login }) {
         
         <span>{errors.password}</span> {/* MUESTRO EL ERROR DEL PASSWORD*/}
         
-        <button type="submit">Log in</button>
+        <button className="btLogin" type="submit">Log in</button>
       </form>
     </div>
   );
