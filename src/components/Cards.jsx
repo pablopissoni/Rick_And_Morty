@@ -11,7 +11,7 @@ export default function Cards ({characters, onClose}) {
           name={char.name}
           species={char.species}
           gender={char.gender}
-          status={characters.status} //! AGREGADO VERIFICAR SI ESTA CORRECTO
+          status={char.status} //! AGREGADO VERIFICAR SI ESTA CORRECTO
           origin={char.origin.name}
           image={char.image}
           onClose={onClose}
