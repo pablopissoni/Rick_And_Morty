@@ -1,64 +1,40 @@
 const axios = require("axios");
 const URL = "https://rickandmortyapi.com/api/character/";
 
-function getCharById(req, res) {
-  const { id } = req.params; //! si falla comprobar que no sea Params con mayuscula
-
-  axios.get(`${URL}${id}`)
-  .then((response => response.data)) //? El .get no es obligatorio, ya esta por defecto
-  .then(({status,name, species, origin, image, gender}) => {
-    if(name){
-      const character ={
-        id,
-        name,
-        species,
-        origin,
-        image,
-        gender,
-        status
-      }
-
-      return res.status(200).json(character)
+async function getCharById(req, res) {
+  
+  try {
+    const { id } = req.params;
+    const { data } = await axios.get(`${URL}${id}`)
+    
+    // let response = await axios.get(`${URL}${id}`)
+    // const {status,name, species, origin, image, gender} = response.data
+    
+    if (!data.name) throw new Error (`Faltan datos del personaje con ID: ${id}`)
+    
+    
+    const character ={
+      id : data.id,
+      name : data.name,
+      species : data.species,
+      origin : data.origin,
+      image : data.image,
+      gender : data.gender,
+      status : data.status
     }
 
-    return res.status(404).send('Not found');
-  })
+    return res.status(200).json(character)
+    // return res.status(404).send('Not found');
 
-  .catch(error => res.status(500).send(error.message))
+  } catch (error) {
+    return error.message.includes('ID')
+    ? res.status(400).send(error.message) 
+    : res.status(500).send(error.response.data.error) //! si falla poner "error.message"
+  }
+
 }
 
 module.exports = {
   getCharById,
 };
 
-// // import axios from "axios"
-// const axios = require("axios");
-
-// const getCharById = (res, id) => {
-//   axios(`https://rickandmortyapi.com/api/character/${id}`)
-//     .then((response) => response.data)
-//     .then(({ name, gender, species, image, origin, status }) => {
-//       const character = {
-//         id,
-//         name,
-//         gender,
-//         species,
-//         origin,
-//         image,
-//         status,
-//       };
-
-//       return res
-//         .writeHead(200, { "Content-type": "application/json" })
-//         .end(JSON.stringify(character));
-//     })
-//     .catch((error) => {
-//       return res
-//         .writeHead(500, { "Content-type": "text/plain" })
-//         .end(error.message);
-//     });
-// };
-
-// module.exports = {
-//     getCharById,
-// };

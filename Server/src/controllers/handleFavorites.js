@@ -1,11 +1,21 @@
 let myFavorites = [];
 
 function postFav(req, res) {
-  const character = req.body;
+    try {
+        const character = req.body;
+        const characterFound = myFavorites.find( fav => fav.id === character.id)
+    
+        if (characterFound) throw Error ('El personaje ya esta agregado en favoritos')
 
-  myFavorites.push(character);
+        myFavorites.push(character);
 
-  return res.status(200).json(myFavorites);
+        return res.status(200).json(myFavorites);    
+        
+    } catch (error) {
+        return res.status(404).send(error.message);    
+    }
+
+    return res.status(404).send("Ya existe en favoritos")
 }
 
 function deleteFav(req, res) {
