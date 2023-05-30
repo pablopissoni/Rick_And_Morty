@@ -23,7 +23,7 @@ server.use((req, res, next) => {
 
 server.use('/rickandmorty', router);
 
-server.listen(PORT, () => { //* Si no me equivoco inicia el server en la direccion de la variable PORT
+server.listen(PORT, () => { //* inicia el server en la direccion de la variable PORT
    console.log(`Server raised in port: ${PORT}`);
 });
 

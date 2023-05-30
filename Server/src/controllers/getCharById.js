@@ -10,8 +10,7 @@ async function getCharById(req, res) {
     // let response = await axios.get(`${URL}${id}`)
     // const {status,name, species, origin, image, gender} = response.data
     
-    if (!data.name) throw new Error (`Faltan datos del personaje con ID: ${id}`)
-    
+    // if (!data.name) throw new Error (`Faltan datos del personaje con ID : ${id}`)
     
     const character ={
       id : data.id,
@@ -22,11 +21,14 @@ async function getCharById(req, res) {
       gender : data.gender,
       status : data.status
     }
-
+    if(!character) {return res.status(404).send("Not found")}
     return res.status(200).json(character)
     // return res.status(404).send('Not found');
 
   } catch (error) {
+    // if (!data.name) return res.status(404).send("character not found")
+    // return res.status(404).send(error.message)
+
     return error.message.includes('ID')
     ? res.status(400).send(error.message) 
     : res.status(500).send(error.response.data.error) //! si falla poner "error.message"
